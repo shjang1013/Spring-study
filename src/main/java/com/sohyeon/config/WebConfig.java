@@ -11,15 +11,13 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
     }
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {ServletConfig.class};
+        return null;
     }
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/"};
+        return null;
     }
-    @Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration){
-        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
-    }
-
 }
+
+// web.xml을 이용해서 스프링 구동
+// XML을 사용하지 않는 경우에는 WebConfig 클래스를 작성해서 처리
