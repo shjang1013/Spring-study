@@ -35,13 +35,15 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-test', version: '5.1.7.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.7.RELEASE'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version: '5.1.7.RELEASE' // spring-jdbc/spring-tx : 스프링에서 데이터베이스 처리와 트랜잭션 처리
+
 
     //HikariCP
     compile group: 'com.zaxxer', name:'HikariCP', version: '2.7.8'
 
     //mybatis
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.2'
-    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6' // MyBatis와 스프링 연동용 라이브러리
 
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.25'
@@ -49,6 +51,7 @@ dependencies {
     compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4', version: '1.16'
     testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
 
+    // SQL 로그를 제대로 보기 위해(SQL을 변환해서 PreparedStatement에 사용된 '?'가 어떤 값으로 처리되었는지 확인)
     compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4', version: '1.16'
 
     compile group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version: '1.2'
