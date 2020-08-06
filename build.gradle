@@ -35,7 +35,8 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-test', version: '5.1.7.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.7.RELEASE'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.7.RELEASE'
-    compile group: 'org.springframework', name: 'spring-tx', version: '5.1.7.RELEASE' // spring-jdbc/spring-tx : 스프링에서 데이터베이스 처리와 트랜잭션 처리
+    compile group: 'org.springframework', name: 'spring-tx', version: '5.1.7.RELEASE'
+    // spring-jdbc/spring-tx : 스프링에서 데이터베이스 처리와 트랜잭션 처리
 
 
     //HikariCP
@@ -55,4 +56,12 @@ dependencies {
     compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4', version: '1.16'
 
     compile group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version: '1.2'
+
+    // plugin
+
 }
+
+// compile : compile 시에 필요한 dependency를 설정
+// testCompile : test 시에 필요한 dependency를 설정
+// providedCompile : compile 시에는 필요하지만, 배포시에는 제외될 dependency를 설정
+// war plugin이 설정된 경우에만 사용 가능

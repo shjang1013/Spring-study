@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Log4j
 public class SampleController {
 
-    @GetMapping("/doA")
-    public void doA() {
-        System.out.println("doA called...........");
+    @GetMapping("/")
+    public String doA() {
+        return "index";
     }
 }

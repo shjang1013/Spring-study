@@ -5,16 +5,14 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {RootConfig.class};
+        return new Class[] { RootConfig.class };
     }
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return null;
+        return new Class[] { ServletConfig.class };
     }
     @Override
-    protected String[] getServletMappings() {
-        return null;
-    }
+    protected String[] getServletMappings() { return new String[] { "/" }; }
 }
 
 // web.xml을 이용해서 스프링 구동
