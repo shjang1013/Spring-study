@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 public class JDBCTest {
     static {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -19,7 +19,7 @@ public class JDBCTest {
     @Test
     public void testConnection() {
         try(Connection con = DriverManager.getConnection(
-                "jdbc:mysql://127.0.0.1:3306/springdb?useSSL=false&serverTimezone=UTC", "spring", "*")) {
+                "jdbc:log4jdbc:mysql://127.0.0.1:3306/springdb?useSSL=false&serverTimezone=UTC", "spring", "*")) {
             log.info(con);
         } catch (Exception e) {
             e.printStackTrace();

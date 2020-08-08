@@ -7,13 +7,16 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] { RootConfig.class };
     }
+    // <context-param>에는 root-context.xml의 경로가 설정되어 있음
+
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[] { ServletConfig.class };
     }
+    //
+
     @Override
     protected String[] getServletMappings() { return new String[] { "/" }; }
 }
 
-// web.xml을 이용해서 스프링 구동
-// XML을 사용하지 않는 경우에는 WebConfig 클래스를 작성해서 처리
+// web.xml은 Tomcat 구동과 관련된 설정으로, web.xml을 이용해서 스프링 구동
