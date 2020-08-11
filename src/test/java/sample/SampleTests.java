@@ -16,8 +16,7 @@ import static org.junit.Assert.assertNotNull;
 @Log4j
 public class SampleTests {
 
-    @Autowired
-    @Setter
+    @Setter(onMethod_ = { @Autowired })
     private Restaurant restaurant;
 
     @Test
