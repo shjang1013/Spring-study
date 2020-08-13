@@ -57,7 +57,8 @@ dependencies {
 
     compile group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version: '1.2'
 
-    // plugin
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.3'
 
 }
 
