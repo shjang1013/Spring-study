@@ -19,7 +19,7 @@ public class JDBCTest {
     @Test
     public void testConnection() {
         try(Connection con = DriverManager.getConnection(
-                "jdbc:log4jdbc:mysql://127.0.0.1:3306/springdb?useSSL=false&serverTimezone=UTC", "spring", "soso2356!")) {
+                "jdbc:log4jdbc:mysql://127.0.0.1:3306/springdb?useSSL=false&serverTimezone=UTC", "spring", "*")) {
             log.info(con);
         } catch (Exception e) {
             e.printStackTrace();
