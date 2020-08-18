@@ -38,7 +38,6 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-tx', version: '5.1.7.RELEASE'
     // spring-jdbc/spring-tx : 스프링에서 데이터베이스 처리와 트랜잭션 처리
 
-
     //HikariCP
     compile group: 'com.zaxxer', name:'HikariCP', version: '2.7.8'
 
