@@ -9,6 +9,21 @@
         ]]>
     </select>
 
+    <insert id="insert" useGeneratedKeys="true" keyProperty="bno" parameterType="com.sohyeon.domain.BoardVO">
+        insert into table_board (title, content, writer) values (#{title}, #{content}, #{writer})
+    </insert>
+
+    <select id="read" resultType="com.sohyeon.domain.BoardVO">
+        select * from table_board where bno = #{bno}
+    </select>
+
+    <delete id="delete">
+        delete from table_board where bno = #{bno}
+    </delete>
+
+    <update id="update">
+        update table_board set title = #{title}, content = #{content}, writer = #{writer}, updateDate = now() where bno = #{bno}
+    </update>
 </mapper>
 
 <!-- XML을 작성할 때는 반드시 <mapper>의 namespace 속성값을 Mapper 인터페이스와 동일한 이름을 주는 것에 주의하기 -->
