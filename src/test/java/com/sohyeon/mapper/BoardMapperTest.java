@@ -1,4 +1,4 @@
-package mapper;
+package com.sohyeon.mapper;
 
 import com.sohyeon.domain.BoardVO;
 import com.sohyeon.mapper.BoardMapper;

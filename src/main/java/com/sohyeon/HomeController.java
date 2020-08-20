@@ -1,4 +1,4 @@
-package com.sohyeon.controller;
+package com.sohyeon;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;

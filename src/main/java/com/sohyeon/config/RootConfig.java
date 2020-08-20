@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@ComponentScan(basePackages = {"com.sohyeon.sample"})
+@ComponentScan(basePackages = {"com.sohyeon.service"})
 @MapperScan(basePackages = {"com.sohyeon.mapper"})
 public class RootConfig {
 

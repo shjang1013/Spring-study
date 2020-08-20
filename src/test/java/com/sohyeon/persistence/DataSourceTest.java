@@ -1,4 +1,4 @@
-package persistence;
+package com.sohyeon.persistence;
 
 import com.sohyeon.config.RootConfig;
 import lombok.Setter;

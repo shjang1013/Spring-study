@@ -1,4 +1,4 @@
-package sample;
+package com.sohyeon.sample;
 
 import com.sohyeon.sample.Restaurant;
 import lombok.Setter;

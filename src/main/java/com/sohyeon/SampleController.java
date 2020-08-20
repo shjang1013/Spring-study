@@ -1,4 +1,4 @@
-package com.sohyeon.controller;
+package com.sohyeon;
 
 import com.sohyeon.domain.SampleDTO;
 import com.sohyeon.domain.TodoDTO;
