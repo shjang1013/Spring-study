@@ -1,4 +1,4 @@
-package com.sohyeon;
+package com.sohyeon.controller;
 
 import com.sohyeon.domain.SampleDTO;
 import com.sohyeon.domain.TodoDTO;
@@ -17,13 +17,14 @@ import java.text.SimpleDateFormat;
 @RequestMapping("/sample/*")
 @Log4j
 public class SampleController {
-
     /*
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
     }
+
+    // 파라미터를 바인딩할 때 자동으로 호출되는 @InitBinder를 이용해서 변환을 처리할 수 있다.
     */
 
     @GetMapping("/basicGet")
@@ -36,13 +37,14 @@ public class SampleController {
         log.info("todo: " + todo);
     }
 
-    @GetMapping("/ex02")  // @ModelAttribute : 강제로 전달받은 파라미터를 Model에 담아서 전달하도록 할 때 필요한 어노테이션, 파라미터로 전달된 데이터를 다시 화면에서 사용해야 할 경우에 유용하게 사용됨
+    @GetMapping("/ex02")
     public String ex02(SampleDTO dto, @ModelAttribute("page") int page) {
         log.info("dto: "+dto);
         log.info("page: "+page);
 
         return "/sample/ex02";
     }
+    // @ModelAttribute : 강제로 전달받은 파라미터를 Model에 담아서 전달하도록 할 때 필요한 어노테이션, 파라미터로 전달된 데이터를 다시 화면에서 사용해야 할 경우에 유용하게 사용됨
 
     @GetMapping("/ex03")  // 스프링 MVC는 자동으로 브라우저에 JSON 타입으로 객체를 변환해서 전달하게 됨
     public @ResponseBody SampleDTO ex03() {
