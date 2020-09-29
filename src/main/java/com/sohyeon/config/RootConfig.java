@@ -25,7 +25,7 @@ public class RootConfig {
         hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
         hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://127.0.0.1:3306/springdb?useSSL=false&serverTimezone=UTC");
         hikariConfig.setUsername("spring");
-        hikariConfig.setPassword("*");
+        hikariConfig.setPassword("!");
 
         HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 
@@ -40,8 +40,8 @@ public class RootConfig {
     }
 }
 
-// @Bean이 선언된 메서드의 실행 결과로 반환된 객체는 스프링의 객체(Bean)으로 등록된다
+// @Bean이 선언된 메서드의 실행 결과로 반환된 객체는 스프링의 객체(Bean)으로 등록
 
-// MyBatis-Spring은 Mapper 인터페이스를 이용해서 실제 SQL 처리가 되는 클래스를 자동으로 생성하며, 개발자들은 인터페이스와 SQL만을 작성하는 방식으로 모든 JDBC 처리를 끝낼 수 있다.
+// MyBatis-Spring은 Mapper 인터페이스를 이용해서 실제 SQL 처리가 되는 클래스를 자동으로 생성하며, 개발자들은 인터페이스와 SQL만을 작성하는 방식으로 모든 JDBC 처리를 끝낼 수 있음
 
-// log4jdbc를 이용하는 경우 JDBC 드라이버와 URL 정보를 수정해야 한다.
+// log4jdbc를 이용하는 경우 JDBC 드라이버와 URL 정보를 수정하기
