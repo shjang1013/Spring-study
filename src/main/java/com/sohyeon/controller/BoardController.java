@@ -26,6 +26,11 @@ public class BoardController {
         model.addAttribute("list", service.getList());
     }
 
+    @GetMapping("/register")
+    public void register() {
+
+    }
+
     @PostMapping("/register")
     public String register(BoardVO board, RedirectAttributes rttr) {
         log.info("register: " + board);   // 등록 작업이 끝난 후 다시 목록 화면으로 이동하기 위함인데, 추가적으로 새롭게 등록된 게시물의 번호를 같이 전달하기 위해 RedirectAttributes를 이용한다.
