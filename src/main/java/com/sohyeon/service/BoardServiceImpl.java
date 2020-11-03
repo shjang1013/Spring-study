@@ -1,6 +1,7 @@
 package com.sohyeon.service;
 
 import com.sohyeon.domain.BoardVO;
+import com.sohyeon.domain.Criteria;
 import com.sohyeon.mapper.BoardMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,6 +28,13 @@ public class BoardServiceImpl implements BoardService {
         log.info("getList..........");
 
         return mapper.getList();
+    }
+
+    @Override
+    public List<BoardVO> getList(Criteria cri) {
+        log.info("get List with criteria : " + cri);
+
+        return mapper.getListWithPaging(cri);
     }
 
     @Override

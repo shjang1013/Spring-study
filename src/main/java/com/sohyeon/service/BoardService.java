@@ -1,6 +1,7 @@
 package com.sohyeon.service;
 
 import com.sohyeon.domain.BoardVO;
+import com.sohyeon.domain.Criteria;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ public interface BoardService {
 
     // 목록(리스트) 작업의 구현
     public List<BoardVO> getList();
+
+    public List<BoardVO> getList(Criteria cri);
 
     // 조회 작업의 구현
     public BoardVO get(Long bno);

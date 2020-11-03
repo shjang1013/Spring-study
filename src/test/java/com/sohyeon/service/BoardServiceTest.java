@@ -3,6 +3,7 @@ package com.sohyeon.service;
 import static org.junit.Assert.assertNotNull;
 
 import com.sohyeon.domain.BoardVO;
+import com.sohyeon.domain.Criteria;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
@@ -39,8 +40,10 @@ public class BoardServiceTest {
 
     @Test
     public void testGetList() {
-        service.getList().forEach(board -> log.info(board));
-    }  // 현재 테이블에 저장된 모든 데이터를 가져옴
+        service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
+        // 현재 테이블에 저장된 모든 데이터를 가져옴
+        // service.getList().forEach(board -> log.info(board));
+    }
 
     @Test
     public void testGet() {
@@ -54,7 +57,6 @@ public class BoardServiceTest {
         if (board == null) {
             return;
         }
-
         board.setTitle("제목 수정합니다");
         log.info("MODIFY RESULT: " + service.modify(board));
     }
