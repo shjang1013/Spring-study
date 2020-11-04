@@ -19,8 +19,4 @@ public class Criteria {
         this.pageNum = pageNum;
         this.amount = amount;
     }
-
-    public void getSkipCount() {
-        this.pageNum = (this.pageNum-1) * this.amount;
-    }
 }
