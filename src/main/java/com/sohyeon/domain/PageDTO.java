@@ -6,11 +6,11 @@ import lombok.ToString;
 @Getter
 @ToString
 public class PageDTO {
-    private int startPage;
-    private int endPage;
-    private boolean prev, next;
+    private int startPage; // 시작 페이지 번호
+    private int endPage; // 끝 페이지 번호
+    private boolean prev, next; // 이전 페이지 링크, 이후 페이지 링크
 
-    private int total;
+    private int total; // 전체 데이터의 개수
     private Criteria cri;
 
     public PageDTO(Criteria cri, int total) {

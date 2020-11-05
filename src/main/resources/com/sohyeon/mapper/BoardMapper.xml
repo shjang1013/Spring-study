@@ -11,7 +11,7 @@
 
     <select id="getListWithPaging" resultType="com.sohyeon.domain.BoardVO">
         <![CDATA[
-        select bno, title, content, writer, regdate, updatedate from table_board where bno > 0 order by bno desc limit #{pageNum}, #{amount}
+        select bno, title, content, writer, regdate, updatedate from table_board where bno > 0 order by bno desc limit #{pageStart}, #{amount}
         ]]>
     </select>
 

@@ -56,7 +56,7 @@
                                 </c:forEach>
 
                                 <c:if test="${pageMaker.next}">
-                                    <li class="paginate_button next"><a href="{pageMaker.endPage +1">Next</a></li>
+                                    <li class="paginate_button next"><a href="${pageMaker.endPage +1}">Next</a></li>
                                 </c:if>
                             </ul>
                         </div>
