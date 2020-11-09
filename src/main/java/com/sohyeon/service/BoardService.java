@@ -22,4 +22,7 @@ public interface BoardService {
     public boolean modify(BoardVO board);
 
     public boolean remove(Long bno);
+
+    // 전체 데이터의 개수 처리
+    public int getTotal(Criteria cri);
 }
