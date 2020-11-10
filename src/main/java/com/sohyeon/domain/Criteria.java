@@ -11,6 +11,9 @@ public class Criteria {
     private int pageNum; // 페이지 번호
     private int amount; // 한 페이지에 몇 개의 데이터를 보여주는지
 
+    private String type;
+    private String keyword;
+
     public Criteria() {
         this(1, 10);
     }
@@ -39,5 +42,9 @@ public class Criteria {
 
     public int getPageStart() {
         return (this.pageNum-1) * amount;
+    }
+
+    public String[] getTypeArr() {
+        return type == null?  new String[] {}: type.split("");
     }
 }

@@ -11,8 +11,31 @@
 
     <select id="getListWithPaging" resultType="com.sohyeon.domain.BoardVO">
         <![CDATA[
-        select bno, title, content, writer, regdate, updatedate from table_board where bno > 0 order by bno desc limit #{pageStart}, #{amount}
+        select bno, title, content, writer, regdate, updatedate from table_board where bno > 0
         ]]>
+
+        <trim prefix="(" suffix=") AND " prefixOverrides="OR">
+            <foreach item="type" collection="typeArr">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            title like '%'||#{keyword}||'%'
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            content like '%'||#{keyword}||'%'
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            writer like '%'||#{keyword}||'%'
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+
+    <![CDATA[
+        order by bno desc
+        limit #{pageNum}, #{amount}
+    ]]>
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="bno" parameterType="com.sohyeon.domain.BoardVO">
