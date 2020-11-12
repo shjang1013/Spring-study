@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.sohyeon.mapper.BoardMapper">
+    <sql id="criteria">
+        <trim prefix="(" suffix=")" prefixOverrides="OR">
+            <foreach item='type' collection="typeArr">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">title LIKE CONCAT ('%', #{keyword}, '%')</when>
+                        <when test="type == 'C'.toString()">content LIKE CONCAT ('%', #{keyword}, '%')</when>
+                        <when test="type == 'W'.toString()">writer LIKE CONCAT ('%', #{keyword}, '%')</when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    </sql>
+
     <select id="getList" resultType="com.sohyeon.domain.BoardVO">
         <![CDATA[
         select * from table_board where bno > 0
@@ -11,31 +23,14 @@
 
     <select id="getListWithPaging" resultType="com.sohyeon.domain.BoardVO">
         <![CDATA[
-        select bno, title, content, writer, regdate, updatedate from table_board where bno > 0
+        SELECT * FROM table_board WHERE
         ]]>
 
-        <trim prefix="(" suffix=") AND " prefixOverrides="OR">
-            <foreach item="type" collection="typeArr">
-                <trim prefix="OR">
-                    <choose>
-                        <when test="type == 'T'.toString()">
-                            title like '%'||#{keyword}||'%'
-                        </when>
-                        <when test="type == 'C'.toString()">
-                            content like '%'||#{keyword}||'%'
-                        </when>
-                        <when test="type == 'W'.toString()">
-                            writer like '%'||#{keyword}||'%'
-                        </when>
-                    </choose>
-                </trim>
-            </foreach>
-        </trim>
+        <include refid="criteria"></include>
 
-    <![CDATA[
-        order by bno desc
-        limit #{pageNum}, #{amount}
-    ]]>
+        <![CDATA[
+        order by bno desc limit #{pageStart}, #{amount}
+        ]]>
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="bno" parameterType="com.sohyeon.domain.BoardVO">
@@ -55,7 +50,9 @@
     </update>
 
     <select id="getTotalCount" resultType="int">
-        select count(*) from table_board where bno > 0
+        select count(*) from table_board where
+        <include refid="criteria"></include>
+        bno > 0
     </select>
 </mapper>
 

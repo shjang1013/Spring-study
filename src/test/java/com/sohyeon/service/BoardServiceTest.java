@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {com.sohyeon.config.RootConfig.class})
 @Log4j
@@ -65,4 +67,5 @@ public class BoardServiceTest {
     public void testDelete() {
         log.info("REMOVE RESULT: " + service.remove(2L));
     }
+
 }
