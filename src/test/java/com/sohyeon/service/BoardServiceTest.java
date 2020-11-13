@@ -42,7 +42,7 @@ public class BoardServiceTest {
 
     @Test
     public void testGetList() {
-        service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
+        // service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
         // 현재 테이블에 저장된 모든 데이터를 가져옴
         // service.getList().forEach(board -> log.info(board));
     }

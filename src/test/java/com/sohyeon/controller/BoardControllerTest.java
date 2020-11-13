@@ -19,7 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration // Test for Controller
 @ContextConfiguration(classes = {com.sohyeon.config.RootConfig.class, com.sohyeon.config.ServletConfig.class})
 @Log4j
-public class BoardControllerTests {
+public class BoardControllerTest {
 
     @Setter(onMethod_ = {@Autowired})
     private WebApplicationContext context;
