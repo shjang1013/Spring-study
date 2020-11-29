@@ -8,4 +8,19 @@
         insert into table_reply (bno, reply, replyer) values (#{bno}, #{reply}, #{replyer})
     </insert>
 
+    <select id="read" resultType="com.sohyeon.domain.ReplyVO">
+        select * from table_reply where rno = #{rno}
+    </select>
+
+    <update id="update">
+        update table_reply set reply = #{reply}, updatedate = now() where rno = #{rno}
+    </update>
+
+    <delete id="delete">
+        delete from table_reply where rno = #{rno}
+    </delete>
+
+    <select id="getListWithPaging" resultType="com.sohyeon.domain.ReplyVO">
+        select rno, bno, reply, replyer, replydate, updatedate from table_reply where bno = #{bno} order by rno asc
+    </select>
 </mapper>

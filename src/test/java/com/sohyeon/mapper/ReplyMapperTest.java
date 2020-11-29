@@ -1,14 +1,17 @@
 package com.sohyeon.mapper;
 
+import com.sohyeon.domain.Criteria;
 import com.sohyeon.domain.ReplyVO;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,6 +36,44 @@ public class ReplyMapperTest {
 
             mapper.insert(vo);
         });
+    }
+
+    @Test
+    public void testRead() {
+        Long targetRno = 5L;
+
+        ReplyVO vo = mapper.read(targetRno);
+
+        log.info(vo);
+    }
+
+    @Test
+    public void testUpdate() {
+        Long targetRno = 10L;
+
+        ReplyVO vo = mapper.read(targetRno);
+
+        vo.setReply("Update Reply");
+
+        int count = mapper.update(vo);
+
+        log.info("UPDATE COUNT: " + count);
+    }
+
+    @Test
+    public void testDelete() {
+        Long targetRno = 10L;
+
+        mapper.delete(targetRno);
+    }
+
+    @Test
+    public void testList() {
+        Criteria cri = new Criteria();
+
+        List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+
+        replies.forEach(reply -> log.info(reply));
     }
 
     @Test
