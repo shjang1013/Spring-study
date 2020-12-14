@@ -62,7 +62,7 @@ public class ReplyMapperTest {
 
     @Test
     public void testDelete() {
-        Long targetRno = 10L;
+        Long targetRno = 23L;
 
         mapper.delete(targetRno);
     }

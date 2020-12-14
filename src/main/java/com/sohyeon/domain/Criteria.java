@@ -10,7 +10,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @ToString
 public class Criteria {
     private int pageNum; // 페이지 번호
-    private int amount; // 한 페이지에 몇 개의 데이터를 보여주는지
+    private int amount;  // 한 페이지에 몇 개의 데이터를 보여주는지
 
     private String type;
     private String keyword;

@@ -51,6 +51,41 @@
     </div>
 </div>
 
+<script type="text/javascript" src="/resources/js/reply.js"></script>
+
+<script>
+    console.log("===============");
+    console.log("JS TEST");
+
+    var bnoValue = '<c:out value="${board.bno}"/>';
+
+    // ReplyService Add Test
+    replyService.add(
+        {reply : "JS Test", replyer : "tester", bno : bnoValue} <!-- add()에 던져야 하는 파라미터는 JavaScript의 객체 타입으로 만들어서 전송해 주고, Ajax 전송 결과를 처리하는 함수를 파라미터로 같이 전달한다 -->
+        , function (result) {
+            alert("RESULT : " + result);
+        }
+    );
+
+    // ReplyService Select Test
+    replyService.getList({bno : bnoValue, page : 1}, function (list) {
+        for(var i = 0, len = list.length||0; i < len; i++) {
+            console.log(list[i]);
+        }
+    });
+
+    // ReplyService Delete Test
+    replyService.remove(28, function (count) {
+        console.log(count);
+
+        if(count === "success") {
+            alert("REMOVED");
+        }
+    }, function (err) {
+        alert("ERROR...");
+    });
+</script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         var operForm = $("#operForm");
