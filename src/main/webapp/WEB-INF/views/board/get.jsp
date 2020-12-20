@@ -84,6 +84,21 @@
     }, function (err) {
         alert("ERROR...");
     });
+
+    // ReplyService Update Test, 22번 댓글 수정
+    replyService.update({
+        rno : 22,
+        bno : bnoValue,
+        reply : "Modified Reply....."
+    }, function(result) {
+        alert("수정 완료.....");
+    });
+
+    // ReplyService Get Test
+    replyService.get(10, function(data) {
+        console.log(data);
+    });
+
 </script>
 
 <script type="text/javascript">
