@@ -1,0 +1,10 @@
+# Project exclude paths
+/.gradle/
+/build/
+/.idea/
+/src/main/webapp/resources/data/
+/src/main/webapp/resources/dist/
+/src/main/webapp/resources/js/sb-admin-2.js
+/src/main/webapp/resources/less/
+/src/main/webapp/resources/pages/
+/src/main/webapp/resources/vendor/
